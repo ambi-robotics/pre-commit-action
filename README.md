@@ -1,14 +1,4 @@
-**DEPRECATED** this action is in maintenance-only mode and will not be
-accepting new features.
-
-Please switch to using [pre-commit.ci] which is faster and has more features.
-
-[pre-commit.ci]: https://pre-commit.ci
-
-___
-
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/pre-commit/action/main.svg)](https://results.pre-commit.ci/latest/github/pre-commit/action/main)
-[![Build Status](https://github.com/pre-commit/action/workflows/deploy/badge.svg)](https://github.com/pre-commit/action/actions)
+[![Build Status](https://github.com/pre-commit/action/workflows/deploy/badge.svg)](https://github.com/ambi-robotics/pre-commit-action/actions)
 
 pre-commit/action
 =================
@@ -32,9 +22,9 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-    - uses: pre-commit/action@v2.0.3
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: ambi-robotics/pre-commit-action@v3
 ```
 
 This does a few things:
@@ -52,7 +42,7 @@ Here's a sample step configuration that only runs the `flake8` hook against all
 the files (use the template above except for the `pre-commit` action):
 
 ```yaml
-    - uses: pre-commit/action@v2.0.3
+    - uses: ambi-robotics/pre-commit-action@v3
       with:
         extra_args: flake8 --all-files
 ```
@@ -69,7 +59,7 @@ first is the checkout step, which needs to use unlimited fetch depth for
 pushing
 
 ```yaml
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 ```
@@ -77,7 +67,7 @@ pushing
 next is passing the token to the pre-commit action
 
 ```yaml
-    - uses: pre-commit/action@v2.0.3
+    - uses: ambi-robotics/pre-commit-action@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 ```
